@@ -1,0 +1,27 @@
+{
+  "name": "realestateapp",
+  "version": "1.0.0",
+  "description": "Tillo - The Ultimate Real Estate App!",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jonathan2025/RealEstateApp.git"
+  },
+  "author": "Jonathan Liang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jonathan2025/RealEstateApp/issues"
+  },
+  "homepage": "https://github.com/Jonathan2025/RealEstateApp#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "method-override": "^3.0.0",
+    "mongoose": "^7.0.1"
+  }
+}
