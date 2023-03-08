@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Tillow! Index Page</title>
+
+
+    </head>
+    <body>
+        <h1>Tillow! Main Index Page</h1>
+      
+        <ul>
+            <% for(let i=0; i < houses.length; i++) { %>
+                <li>
+					<%= houses[i].address %>
+                </li>
+            <% } %>
+
+        </ul>
+    </body>
+</html>

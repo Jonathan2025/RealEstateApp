@@ -34,7 +34,7 @@ router.get("/", async(req,res)=> {
     }
 })
 
-// SEED DATA
+// SEED Route
 // Created some dummy data to get the user started. 
 router.get('/seed', async (req, res) => {
     const newHouse =
