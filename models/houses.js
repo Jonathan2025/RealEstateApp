@@ -2,7 +2,7 @@
 // the houses schema
 const mongoose = require('mongoose');
 
-const productsSchema = new mongoose.Schema({
+const housesSchema = new mongoose.Schema({
     address: {type:String, required:true},
     description: String,
     img: {type:String, required:true},
@@ -26,5 +26,5 @@ const productsSchema = new mongoose.Schema({
     notes:{type:String}
 });
 
-const Houses = mongoose.model('Houses', productsSchema);
+const Houses = mongoose.model('Houses', housesSchema);
 module.exports = Houses;

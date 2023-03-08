@@ -1,6 +1,13 @@
 // Express Dependencies 
 const express = require('express');
 const app = express();
+
+// require method override 
+const methodOverride = require('method-override')
+
+// import the houses controller, now we also need to where they will route to for houses
+const housesController = require('./controllers/houses.js')
+
 const mongoose = require('mongoose')
 const Houses = require('./models/houses.js')
 require('dotenv').config();
@@ -27,13 +34,11 @@ db.on('disconnected', ()=> console.log('mongo disconnected'))
 app.use(express.urlencoded({extended:true})) //turns the input into actual body 
 app.use(express.json());
 
-
+// Eventually - methodoverride will allow us to make DELETE and PULL requests
+app.use(methodOverride('_method'))
 
 // INDUCES - Routes (will eventually go to the controllers)
-// create a basic route to make sure things work
-app.get("/houses", (req, res) => {
-    res.send('The route works!')
-})
+app.use('/houses', housesController)
 
 
 // Port Listener
