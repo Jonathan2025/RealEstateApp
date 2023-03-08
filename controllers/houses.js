@@ -68,15 +68,25 @@ router.get('/seed', async (req, res) => {
     try {
       const seedItems = await Houses.create(newHouse)
       res.send(seedItems)
-    } catch (err) {
-      res.send(err.message)
+    } catch (error) {
+      res.send(error.message)
     }
   })
 
 
-
-
-
+// SHOW Route 
+router.get('/:id', async (req, res) => {
+    try {
+        // the .exec() method is used to execute the query 
+      const foundHouse = await Houses.findById(req.params.id).exec();
+      res.render('show.ejs', {
+        house: foundHouse
+      });
+    } catch (error) {
+      console.log(error);
+      res.send(error);
+    }
+  });
 
 
 // export the module 
