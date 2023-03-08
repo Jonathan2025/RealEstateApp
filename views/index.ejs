@@ -12,7 +12,12 @@
         <ul>
             <% for(let i=0; i < houses.length; i++) { %>
                 <li>
-					<%= houses[i].address %>
+
+					<!-- link to the house, clicking it will lead to the house show page -->
+                    <a href="/houses/<%=houses[i].id; %>">
+                        <%=houses[i].address; %>
+                    </a>
+
                 </li>
             <% } %>
 
