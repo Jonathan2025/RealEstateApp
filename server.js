@@ -30,7 +30,10 @@ app.use(express.json());
 
 
 // INDUCES - Routes (will eventually go to the controllers)
-
+// create a basic route to make sure things work
+app.get("/houses", (req, res) => {
+    res.send('The route works!')
+})
 
 
 // Port Listener
