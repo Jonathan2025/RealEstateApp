@@ -2,7 +2,7 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose')
-const House = require('./models/houses.js')
+const Houses = require('./models/houses.js')
 require('dotenv').config();
 
 
