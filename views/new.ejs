@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a NEW House</title>
+
+
+</head>
+<body>
+    
+    <h1>New House Page </h1>
+
+    <form action="/houses" method="POST">
+        Address: <input type="text" name="address" required/><br/>
+        Description: <input type="text" name="description"/><br/>
+        Image: <input type="text" name="img" required/><br/>
+        Price: <input type="number" step="1000" min="0" name="price" required/><br/>
+        Bedrooms: <input type="number" step="1" min="0" name="bedrooms" required/><br/>
+        Bathrooms: <input type="number" step="1" min="0" name="bathrooms" required/><br/>
+        Sqft: <input type="number" step="50" min="0" name="sqft" required/><br/>
+        Home Type: <input type="text" name="homeType" required/><br/>
+        Heating: <input type="text" name="heating" required/><br/>
+        Cooling: <input type="text" name="cooling" required/><br/>
+        Parking: <input type="text" name="parking"/><br/>
+        Year Built: <input type="number" name="yearBuilt"/><br/>
+        Appliances Included: <input type="text" name="appliancesIncluded"/><br/>
+        Basement: <input type="checkbox" name="basement"/><br/>
+        Garage: <input type="checkbox" name="garage"/><br/>
+        Kitchen: <input type="checkbox" name="kitchen"/><br/>
+        Living Room: <input type="checkbox" name="livingRoom"/><br/>
+        Dining Room: <input type="checkbox" name="diningRoom"/><br/>
+        Attic: <input type="checkbox" name="attic"/><br/>
+        Amenities: <input type="text" name="amenities"/><br/>
+        Notes: <input type="text" name="notes"/><br/>
+
+
+
+
+        <button type="submit" name="action">Create House</button>
+    </form>
+
+</body>
+</html>

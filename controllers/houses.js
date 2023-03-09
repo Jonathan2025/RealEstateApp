@@ -34,6 +34,17 @@ router.get("/", async(req,res)=> {
     }
 })
 
+
+// New Route
+router.get("/new", async(req,res) => {
+  res.render('new.ejs')
+})
+
+
+
+
+
+
 // SEED Route
 // Created some dummy data to get the user started. 
 router.get('/seed', async (req, res) => {
@@ -72,6 +83,11 @@ router.get('/seed', async (req, res) => {
       res.send(error.message)
     }
   })
+
+
+
+// Create Route 
+
 
 
 // SHOW Route 
