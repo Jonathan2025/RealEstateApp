@@ -87,6 +87,18 @@ router.get('/seed', async (req, res) => {
 
 
 // Create Route 
+router.post('/', async(req,res)=>{
+  try{
+    const createdHouse = await Houses.create(req.body)
+    res.redirect('/houses')
+  } catch(error){
+    console.log(error)
+    res.send(error)
+  }
+})
+
+
+
 
 
 
