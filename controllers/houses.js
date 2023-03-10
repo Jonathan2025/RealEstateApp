@@ -85,6 +85,24 @@ router.get('/seed', async (req, res) => {
   })
 
 
+// Update Route 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // concept of the create route
 // when we submit a form with checkboxes, the values of the checkboxes are sent to the server as an object in the "req.body" variable
 // We want to convert the "on" value to "true" and the "undefined" to false (meaning it was unchecked)
@@ -106,7 +124,7 @@ router.post('/', async (req, res) => {
         //console.log("third console.log" + req.body[key]) // 123 sesame street
         // pretty much req.body[key] is using brackett notation to access the properties of the object 
         // Ex. req.body['address'], req.body['description'], etc
-        
+
          // Check if the key represents a checkbox and has it "checked"
         if (req.body[key] === "on") {
           // If so, set its value to true
@@ -132,6 +150,26 @@ router.post('/', async (req, res) => {
 
 
 
+// Edit Route 
+router.get('/:id/edit', async (req, res) => {
+  try {
+    const foundHouse = await Houses.findById(req.params.id);
+    // find the id which is in req.params
+    res.render('edit.ejs', {
+      house: foundHouse
+    });
+  } catch (error) {
+    console.log(error)
+    res.send(error)
+  }
+})
+
+
+
+
+
+
+
 
 // SHOW Route 
 router.get('/:id', async (req, res) => {
@@ -146,6 +184,12 @@ router.get('/:id', async (req, res) => {
       res.send(error);
     }
   });
+
+
+
+
+
+
 
 
 // export the module 
