@@ -86,6 +86,40 @@ router.get('/seed', async (req, res) => {
 
 
 // Update Route 
+//lets make out route actually update the product after we submit the edit form
+router.put('/:id', async (req, res) => {
+  try {
+      // Loop through the checkbox properties and update them
+      // similar to what we had in the create route in which we used the code we had in that route
+      for (const key in req.body){
+
+        if (req.body.hasOwnProperty(key)) {
+
+          // Check if the key represents a checkbox and has it "checked"
+          if (req.body[key] === "on") {
+            // If so, set its value to true
+            req.body[key] = true
+            // if its not checked, then set its value to false 
+          } else if (req.body[key] === "off") {
+            // Otherwise, set its value to false
+            req.body[key] = false
+          }
+        }
+      }
+
+      // Find and update the house by id using async/await
+      const updatedHouse = await Houses.findByIdAndUpdate(req.params.id, req.body, {new: true})
+
+      console.log(updatedHouse);
+      res.redirect('/houses');
+  } catch (error) {
+      console.log(error)
+      res.send(error)
+  }
+})
+
+
+
 
 
 
