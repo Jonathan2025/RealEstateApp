@@ -41,7 +41,18 @@ router.get("/new", async(req,res) => {
 })
 
 
-
+// Delete Route 
+router.delete('/:id', async (req, res) => {
+  try {
+    const deleteHouse = await Houses.findByIdAndDelete(req.params.id)
+    // find the id which is in req.params
+    console.log(deleteHouse)
+    res.redirect('/houses')
+  } catch (error) {
+    console.log(error)
+    res.send(error)
+  }
+})
 
 
 

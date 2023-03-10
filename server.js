@@ -8,6 +8,8 @@ const methodOverride = require('method-override')
 // import the houses controller, now we also need to where they will route to for houses
 const housesController = require('./controllers/houses.js')
 
+
+// Require mongoose
 const mongoose = require('mongoose')
 const Houses = require('./models/houses.js')
 require('dotenv').config();
@@ -36,6 +38,8 @@ app.use(express.json());
 
 // Eventually - methodoverride will allow us to make DELETE and PULL requests
 app.use(methodOverride('_method'))
+
+
 
 // INDUCES - Routes (will eventually go to the controllers)
 app.use('/houses', housesController)
