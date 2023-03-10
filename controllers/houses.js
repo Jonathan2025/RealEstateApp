@@ -121,8 +121,9 @@ router.put('/:id', async (req, res) => {
       // Find and update the house by id using async/await
       const updatedHouse = await Houses.findByIdAndUpdate(req.params.id, req.body, {new: true})
 
-      console.log(updatedHouse);
-      res.redirect('/houses');
+      console.log(updatedHouse)
+      // send us back to the show page after the update is made
+      res.render('show.ejs')
   } catch (error) {
       console.log(error)
       res.send(error)
@@ -198,11 +199,11 @@ router.post('/', async (req, res) => {
 // Edit Route 
 router.get('/:id/edit', async (req, res) => {
   try {
-    const foundHouse = await Houses.findById(req.params.id);
+    const foundHouse = await Houses.findById(req.params.id)
     // find the id which is in req.params
     res.render('edit.ejs', {
       house: foundHouse
-    });
+    })
   } catch (error) {
     console.log(error)
     res.send(error)
