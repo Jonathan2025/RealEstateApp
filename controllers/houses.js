@@ -85,13 +85,44 @@ router.get('/seed', async (req, res) => {
   })
 
 
+// concept of the create route
+// when we submit a form with checkboxes, the values of the checkboxes are sent to the server as an object in the "req.body" variable
+// We want to convert the "on" value to "true" and the "undefined" to false (meaning it was unchecked)
+// To do this, we need to check if each property represents a checkbox 
+// Each checkbox represents a key value pair in the req.body object
+
 
 // Create Route 
-router.post('/', async(req,res)=>{
-  try{
+router.post('/', async (req, res) => {
+  try {
+    // because we have multiple fields that have check boxes we need to loop through them
+    for (const key in req.body) {
+      //console.log("first console.log" + key) //address
+      // hasownporperty is a method to check if the key is a direct property with a specific name
+      if (req.body.hasOwnProperty(key)) {
+        //console.log("second console.log" + key) // address
+
+       
+        //console.log("third console.log" + req.body[key]) // 123 sesame street
+        // pretty much req.body[key] is using brackett notation to access the properties of the object 
+        // Ex. req.body['address'], req.body['description'], etc
+        
+         // Check if the key represents a checkbox and has it "checked"
+        if (req.body[key] === "on") {
+          // If so, set its value to true
+          req.body[key] = true
+          // if its not checked, then set its value to false 
+        } else if (req.body[key] === "off") {
+          // Otherwise, set its value to false
+          req.body[key] = false
+        }
+      }
+    }
+
+    // Create the house using the updated request body
     const createdHouse = await Houses.create(req.body)
     res.redirect('/houses')
-  } catch(error){
+  } catch (error) {
     console.log(error)
     res.send(error)
   }
