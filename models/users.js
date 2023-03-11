@@ -3,6 +3,7 @@
 
 const mongoose = require('mongoose')
 
+// user will need to enter a username and password
 const userSchema = new mongoose.Schema({
    username: {type:String, required:true, unique:true}, 
    password: String
