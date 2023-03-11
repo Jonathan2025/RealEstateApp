@@ -16,11 +16,16 @@ router.get('/register', (req, res) => {
 })
 
 
+// Register - POST route 
 router.post('/register', async (req, res) => {
-    const salt = bcrypt.genSaltSync(10)
+    const salt = bcrypt.genSaltSync(10) // salt - a random sequence of characters, making password harder to crack 
+    // complexity factor of 10 
+    // basically hashSync takes a password provided in the req.body.password and generates a hash
     req.body.password = bcrypt.hashSync(req.body.password, salt)
 
     try {
+        //user.findOne ... searches the database for a user with the provided username property in the req.body object 
+        //and assigns the result to the userExists variable.
         const userExists = await User.findOne({ username: req.body.username })
 
         if (userExists) {
