@@ -123,7 +123,9 @@ router.put('/:id', async (req, res) => {
 
       console.log(updatedHouse)
       // send us back to the show page after the update is made
-      res.render('show.ejs')
+      res.render('show.ejs', {
+        house: updatedHouse
+      })
   } catch (error) {
       console.log(error)
       res.send(error)
