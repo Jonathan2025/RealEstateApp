@@ -1,0 +1,24 @@
+<!-- when the user hits the register route they will be led to a form to create a username and password -->
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>User Registration</title>
+  </head>
+  <body>
+    <h1>Register A New User</h1>
+    <form action="/users/register" method="POST">
+        <!-- fieldset just makes things more nicer on the form -->
+      <fieldset>
+        <label for="username">Username:</label>
+        <input type="text" name="username">
+      </fieldset>
+      <fieldset>
+        <label for="password">Password:</label>
+        <input type="password" name="password">
+      </fieldset>
+      <input type="submit" value="Sign Up">
+    </form>
+  </body>
+</html>
