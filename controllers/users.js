@@ -9,8 +9,8 @@ const router = express.Router()
 const User = require('../models/users.js')
 
 
-// REGISTER
-// create a register route
+// REGISTER PAGE
+//Register - Get route
 router.get('/register', (req, res) => {
 	res.render('users/register.ejs')
 })
@@ -18,11 +18,10 @@ router.get('/register', (req, res) => {
 
 // Register - POST route 
 router.post('/register', async (req, res) => {
-    const salt = bcrypt.genSaltSync(10) // salt - a random sequence of characters, making password harder to crack 
-    // complexity factor of 10 
+    const salt = bcrypt.genSaltSync(10) // salt - a random sequence of characters, making password harder to crack, with complexity value of 10
+    
     // basically hashSync takes a password provided in the req.body.password and generates a hash
     req.body.password = bcrypt.hashSync(req.body.password, salt)
-
     try {
         //user.findOne ... searches the database for a user with the provided username property in the req.body object 
         //and assigns the result to the userExists variable.
@@ -40,6 +39,43 @@ router.post('/register', async (req, res) => {
         res.render(error)
     }
 })
+
+
+
+
+//SIGNIN Page 
+//SIGNIN - Get Route
+router.get('/signin', (req, res) => {
+	res.render('users/signin.ejs')
+})
+
+// Signin - POST route 
+router.post('/signin', async (req, res) => {
+
+	try {
+		const foundUser = await User.findOne({ username: req.body.username })
+
+		if(foundUser) {
+            //compareSync compares the password provided in the request body to the hash stored in the foundUser object.
+			const validLogin = bcrypt.compareSync(req.body.password, foundUser.password)
+
+			if(validLogin) {
+				req.session.currentUser = foundUser
+				res.redirect('/houses')
+			} else {
+				res.send('Invalid username or password')
+			}
+		} else {
+			res.send('Invalid username or password')
+		}
+	} catch (error) {
+		console.log(error)
+		res.render(error)
+	}
+})
+
+
+
 
 
 
