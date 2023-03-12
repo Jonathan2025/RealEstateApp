@@ -3,6 +3,7 @@
 const mongoose = require('mongoose');
 
 const housesSchema = new mongoose.Schema({
+    _id: mongoose.Schema.Types.ObjectId, 
     address: {type:String, required:true},
     description: String,
     img: {type:String, required:true},
@@ -23,7 +24,8 @@ const housesSchema = new mongoose.Schema({
     diningRoom: {type:Boolean},
     attic: {type:Boolean},
     amenities: {type:String},
-    notes:{type:String}
+    notes:{type:String}, 
+
 });
 
 const Houses = mongoose.model('Houses', housesSchema);
