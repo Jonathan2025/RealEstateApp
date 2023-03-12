@@ -1,3 +1,4 @@
+// import bcrypt package
 const bcrypt = require('bcrypt')
 const express = require('express')
 const router = express.Router()
@@ -71,6 +72,15 @@ router.post('/signin', async (req, res) => {
       res.render(error)
     }
   })
+
+router.get('/signout', (req,res)=>{
+    // this destroys this session (logs the user out)
+    // you can always access the user IF signed in in this request object 
+    req.session.destroy()
+    res.redirect('/users/signin')
+})
+
+
 
 
 module.exports = router
