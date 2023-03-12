@@ -55,7 +55,7 @@ router.get("/", authRequired, async(req,res)=> {
 
 
 // New Route
-router.get("/new", authRequired, async(req,res) => {
+router.get("/new",authRequired, async(req,res) => {
   res.render('new.ejs')
 })
 

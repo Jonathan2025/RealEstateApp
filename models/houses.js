@@ -3,7 +3,6 @@
 const mongoose = require('mongoose');
 
 const housesSchema = new mongoose.Schema({
-    _id: mongoose.Schema.Types.ObjectId, 
     address: {type:String, required:true},
     description: String,
     img: {type:String, required:true},
