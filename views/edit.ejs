@@ -10,7 +10,7 @@
     <form action="/houses/<%= house.id %>?_method=PUT" method="POST">
       Address: <input type="text" name="address" value="<%=house.address%>"> <br/>
       Description: <input type="text" name="description" value="<%=house.description%>"> <br/>
-      Image: <input type="text" name="img" value="<%=house.img%>"> <br/>
+      Image: <input type="file" name="img" value="<%=house.img%>" accept="image/*"> <br/>
       Price: <input type="number" step="1000" min="0" name="price" value="<%=house.price%>"> <br/>
       Bedrooms: <input type="number" step="1" min="0" name="bedrooms" value="<%=house.bedrooms%>"/><br/>
       Bathrooms: <input type="number" step="1" min="0" name="bathrooms" value="<%=house.bathrooms%>"/><br/>

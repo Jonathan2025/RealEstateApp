@@ -14,7 +14,7 @@
     <form action="/houses" method="POST">
         Address: <input type="text" name="address" required/><br/>
         Description: <input type="text" name="description"/><br/>
-        Image: <input type="text" name="img" required/><br/>
+        Image: <input type="file" name="img" accept="image/*" required/><br/>
         Price: <input type="number" step="1000" min="0" name="price" required/><br/>
         Bedrooms: <input type="number" step="1" min="0" name="bedrooms" required/><br/>
         Bathrooms: <input type="number" step="1" min="0" name="bathrooms" required/><br/>
