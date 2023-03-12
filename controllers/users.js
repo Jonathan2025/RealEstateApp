@@ -77,6 +77,7 @@ router.get('/signout', (req,res)=>{
     // this destroys this session (logs the user out)
     // you can always access the user IF signed in in this request object 
     req.session.destroy()
+    // once signed out redirect the user to the signin page
     res.redirect('/users/signin')
 })
 
