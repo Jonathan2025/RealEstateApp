@@ -65,7 +65,7 @@ router.post('/signin', async (req, res) => {
         }
       } else {
         // if the user does not exist, we need to let user know
-        res.send('The username or password entered does not exist')
+        res.send("The username and password could not be found, please register an account")
       }
     } catch (error) {
       console.log(error)

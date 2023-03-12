@@ -11,14 +11,26 @@ const Houses = require('../models/houses.js')
 
 
 
+// Custom middleware to require authentication ON ROUTES
+const authRequired = (req, res, next) => {
+  // we want to access the current user session 
+  if(req.session.currentUser){
+      // if the user is signed in 
+      next()
+      // next is part of express and it just says "go on to the next thing"
+  } else {
+      // if there is no user 
+      // redirect them to sign in
+      res.redirect('/users/signin')
+  }
+}
+
+
 
 
 
 
 // ROUTES - INDUCES
-
-
-
 
 
 // with the new version of mongoose, we had to modify the routes and add some new concepts
@@ -31,7 +43,7 @@ const Houses = require('../models/houses.js')
 
 
 // Index Route 
-router.get("/", async(req,res)=> {
+router.get("/", authRequired, async(req,res)=> {
     try{
         const allHouses = await Houses.find({})
         res.render('index.ejs', {houses:allHouses})
@@ -43,13 +55,13 @@ router.get("/", async(req,res)=> {
 
 
 // New Route
-router.get("/new", async(req,res) => {
+router.get("/new", authRequired, async(req,res) => {
   res.render('new.ejs')
 })
 
 
 // Delete Route 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', authRequired, async (req, res) => {
   try {
     const deleteHouse = await Houses.findByIdAndDelete(req.params.id)
     // find the id which is in req.params
@@ -65,7 +77,7 @@ router.delete('/:id', async (req, res) => {
 
 // SEED Route
 // Created some dummy data to get the user started. 
-router.get('/seed', async (req, res) => {
+router.get('/seed', authRequired, async (req, res) => {
     const newHouse =
       [
         {
@@ -105,7 +117,7 @@ router.get('/seed', async (req, res) => {
 
 // Update Route 
 //lets make out route actually update the product after we submit the edit form
-router.put('/:id', async (req, res) => {
+router.put('/:id', authRequired, async (req, res) => {
   try {
       // Loop through the checkbox properties and update them
       // similar to what we had in the create route in which we used the code we had in that route
@@ -166,7 +178,7 @@ router.put('/:id', async (req, res) => {
 
 
 // Create Route 
-router.post('/', async (req, res) => {
+router.post('/', authRequired, async (req, res) => {
   try {
     // because we have multiple fields that have check boxes we need to loop through them
     for (const key in req.body) {
@@ -206,7 +218,7 @@ router.post('/', async (req, res) => {
 
 
 // Edit Route 
-router.get('/:id/edit', async (req, res) => {
+router.get('/:id/edit', authRequired, async (req, res) => {
   try {
     const foundHouse = await Houses.findById(req.params.id)
     // find the id which is in req.params
@@ -227,7 +239,7 @@ router.get('/:id/edit', async (req, res) => {
 
 
 // SHOW Route 
-router.get('/:id', async (req, res) => {
+router.get('/:id',authRequired, async (req, res) => {
     try {
         // the .exec() method is used to execute the query 
       const foundHouse = await Houses.findById(req.params.id).exec();
