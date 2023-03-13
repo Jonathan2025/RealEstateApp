@@ -29,5 +29,50 @@
         <input type="submit" value="Delete">
     </form>
 
+
+    <div id="map" style="height: 500px;"></div>
+
+
+
+    <!-- this will be the code where our google maps API goes  -->
+    <!-- leave it commented out for now to avoid unnecessary usage -->
+    <!-- <script>
+        
+        function initMap() {
+            In order for the google maps to work we need to give it the location of the house
+          const geocoder = new google.maps.Geocoder();
+
+            for the location of the house it will need the address, city, state and zip
+
+          const address = '<%= house.address %>, <%= house.city %>, <%= house.state %>, <%= house.zip %>';
+            console.log(address)
+
+            geocoder.geocode() is a method provided by the Google Maps JavaScript API 
+            that takes an address or a location and returns its geographical coordinates 
+
+          geocoder.geocode({ 'address': address }, function(results, status) {
+            if (status === 'OK') {
+            
+            The map object is an instance of the google.maps.Map class which represents the map displayed on the page.
+              const map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 16,
+                center: results[0].geometry.location
+              })
+              A marker is a visual element on a map that represents a specific location or point of interest
+              const marker = new google.maps.Marker({
+                map: map,
+                position: results[0].geometry.location
+              })
+            } else {
+              console.log('Geocode was not successful for the following reason: ' + status);
+            }
+          })
+        }
+
+        initMap()
+        </script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAV0h_ypXFetnRJem2FC4gJHuHf6XeR4Bk&callback=initMap"></script> -->
+
+
 </body>
 </html>

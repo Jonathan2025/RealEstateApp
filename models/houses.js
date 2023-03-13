@@ -4,8 +4,9 @@ const mongoose = require('mongoose');
 
 const housesSchema = new mongoose.Schema({
     address: {type:String, required:true},
+    city: {type:String, required:true},
     state: {type:String, required:true},
-    zipCode: {type:Number, required:true},
+    zip: {type:String, required:true},
     description: String,
     img: {type:String},
     price: {type:Number,required:true, min:0},
