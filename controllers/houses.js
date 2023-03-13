@@ -151,11 +151,15 @@ router.put('/:id', upload.single('img'), async (req, res) => {
     // If an image was uploaded, update the img property
     if (req.file) {
       house.img = req.file.filename
+      
     }
 
     // Update the house with the new values
     await house.updateOne(req.body)
+    
+    await house.save()
 
+    
     // send us back to the show page after the update is made
     res.render('show.ejs', {
       house: house
@@ -234,7 +238,7 @@ router.get('/:id', async (req, res) => {
     try {
         // the .exec() method is used to execute the query 
       const foundHouse = await Houses.findById(req.params.id).exec()
-      console.log(foundHouse)
+      console.log("Show route" + foundHouse)
       res.render('show.ejs', {
         house: foundHouse
       });

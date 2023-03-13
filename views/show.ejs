@@ -14,9 +14,10 @@
 
     <h1><%=house.address %></h1>
     <br>
-    <!-- <img src="<%=house.img; %>" width="200" height="150"> -->
-    <!-- <img src="/public/images/<%= house.img %>" width="200" height="150"> -->
-    <img src="/images/<%=house.img; %>" width="200" height="150">
+   
+    <!-- <img src="/images/<%=house.img; %>" width="200" height="150"> -->
+    <img src="/images/<%= house.img %>?v=<%= Date.now() %>" width="200" height="150">
+   
     <br> 
     Description: <%=house.description %>
     
@@ -30,8 +31,24 @@
     </form>
 
 
+
+
+
+
+
+
+
+
+
     <!-- we will make a "placeholder" for where the google maps api would be -->
-    <div style ="height: 500px;"></div>
+    <!-- <div style ="height: 500px;"></div> -->
+
+
+
+
+
+
+
 
 
 
@@ -76,8 +93,11 @@
         }
 
         initMap()
-        </script>
+        </script> -->
        
+      
+      </body>
+      </html>
 
-</body>
-</html>
+
+      
