@@ -175,26 +175,17 @@ router.put('/:id', upload.single('img'), async (req, res) => {
 // Each checkbox represents a key value pair in the req.body object
 
 
+
 // Create Route 
-router.post('/', async (req, res) => {
+router.post('/', upload.single('img'), async (req, res) => {
   try {
-    // because we have multiple fields that have check boxes we need to loop through them
+    // Loop through the checkbox properties and update them
     for (const key in req.body) {
-      //console.log("first console.log" + key) //address
-      // hasownporperty is a method to check if the key is a direct property with a specific name
-      if (req.body.hasOwnProperty(key)) {
-        //console.log("second console.log" + key) // address
-
-       
-        //console.log("third console.log" + req.body[key]) // 123 sesame street
-        // pretty much req.body[key] is using brackett notation to access the properties of the object 
-        // Ex. req.body['address'], req.body['description'], etc
-
-         // Check if the key represents a checkbox and has it "checked"
+      if (Object.prototype.hasOwnProperty.call(req.body, key)) {
+        // Check if the key represents a checkbox and has it "checked"
         if (req.body[key] === "on") {
           // If so, set its value to true
           req.body[key] = true
-          // if its not checked, then set its value to false 
         } else if (req.body[key] === "off") {
           // Otherwise, set its value to false
           req.body[key] = false
@@ -204,12 +195,22 @@ router.post('/', async (req, res) => {
 
     // Create the house using the updated request body
     const createdHouse = await Houses.create(req.body)
+
+    // If an image was uploaded, update the img property for the created house
+    if (req.file) {
+      createdHouse.img = req.file.filename
+      await createdHouse.save()
+    }
+
     res.redirect('/houses')
   } catch (error) {
     console.log(error)
     res.send(error)
   }
 })
+
+
+
 
 
 // Edit Route 
