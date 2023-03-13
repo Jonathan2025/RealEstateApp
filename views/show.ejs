@@ -14,7 +14,9 @@
 
     <h1><%=house.address %></h1>
     <br>
-    <img src="<%=house.img; %>" width="200" height="150">
+    <!-- <img src="<%=house.img; %>" width="200" height="150"> -->
+    <!-- <img src="/public/images/<%= house.img %>" width="200" height="150"> -->
+    <img src="/images/<%=house.img; %>" width="200" height="150">
     <br> 
     Description: <%=house.description %>
     

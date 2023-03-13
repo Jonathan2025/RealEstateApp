@@ -7,10 +7,10 @@
   <body>
     <h1>Edit House Page</h1>
     <!-- change the route to POST -->
-    <form action="/houses/<%= house.id %>?_method=PUT" method="POST">
+    <form action="/houses/<%= house.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
       Address: <input type="text" name="address" value="<%=house.address%>"> <br/>
       Description: <input type="text" name="description" value="<%=house.description%>"> <br/>
-      Image: <input type="file" name="img" value="<%=house.img%>" accept="image/*"> <br/>
+      Image: <input type="file" name="img" value="<%= house.img %>"> <br> <!-- display the current image path as the value -->
       Price: <input type="number" step="1000" min="0" name="price" value="<%=house.price%>"> <br/>
       Bedrooms: <input type="number" step="1" min="0" name="bedrooms" value="<%=house.bedrooms%>"/><br/>
       Bathrooms: <input type="number" step="1" min="0" name="bathrooms" value="<%=house.bathrooms%>"/><br/>
@@ -72,9 +72,6 @@
 
         Amenities: <input type="text" name="amenities" value="<%=house.amenities%>"/><br/>
         Notes: <input type="text" name="notes" value="<%=house.notes%>"/><br/>
-      
-      
-      
       
       
       <br/>

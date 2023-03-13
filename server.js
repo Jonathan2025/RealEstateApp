@@ -4,6 +4,10 @@ const app = express();
 
 // require method override 
 const methodOverride = require('method-override')
+
+
+
+
 require('dotenv').config();
 const Houses = require('./models/houses.js')
 
@@ -33,7 +37,6 @@ app.use(session({
     saveUninitialized: false // only save the session when its new
 }))
 
-// this middleware will attach a cookie to our response  which will then get saved by the user's browser
 
 
 // Require mongoose
@@ -64,11 +67,16 @@ app.use(express.json())
 // Eventually - methodoverride will allow us to make DELETE and PULL requests
 app.use(methodOverride('_method'))
 
+
+// Serve static files from the public directory
+app.use(express.static('public'))
+
+
+
 // INDUCES - Routes (will eventually go to the controllers)
 app.use('/houses', housesController)
 
 app.use('/users', userController)
-
 
 
 // Port Listener

@@ -1,13 +1,11 @@
-// Here we will put the routes which would normally go in the server.js file
 
-// we will first need to require express and access the router
+// Will first need to require express and access the router
 // Router - Allows us to create a new object instead of app.use we can just link it 
 const express = require('express')
 const router = express.Router()
-
-
-//access the houses.js file 
-const Houses = require('../models/houses.js')
+const Houses = require('../models/houses.js') //access the houses.js file
+const bodyParser = require('body-parser');
+const multer = require('multer') //multer will allow us to upload images when we submit the form 
 
 
 
@@ -26,8 +24,23 @@ const authRequired = (req, res, next) => {
 }
 
 
+//Set up the storage configuration for Multer 
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    // here we set the destination to the public/images folder
+    cb(null, 'public/images')
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname)
+  }
+})
+
+// set up the Multer middleware
+const upload = multer({ storage: storage })
 
 
+// Body-parser middleware
+router.use(bodyParser.urlencoded({ extended: true }))
 
 
 // ROUTES - INDUCES
@@ -43,7 +56,7 @@ const authRequired = (req, res, next) => {
 
 
 // Index Route 
-router.get("/", authRequired, async(req,res)=> {
+router.get("/", async(req,res)=> {
     try{
         const allHouses = await Houses.find({})
         res.render('index.ejs', {houses:allHouses})
@@ -55,13 +68,13 @@ router.get("/", authRequired, async(req,res)=> {
 
 
 // New Route
-router.get("/new",authRequired, async(req,res) => {
+router.get("/new", async(req,res) => {
   res.render('new.ejs')
 })
 
 
 // Delete Route 
-router.delete('/:id', authRequired, async (req, res) => {
+router.delete('/:id', async (req, res) => {
   try {
     const deleteHouse = await Houses.findByIdAndDelete(req.params.id)
     // find the id which is in req.params
@@ -77,11 +90,10 @@ router.delete('/:id', authRequired, async (req, res) => {
 
 // SEED Route
 // Created some dummy data to get the user started. 
-router.get('/seed', authRequired, async (req, res) => {
+router.get('/seed', async (req, res) => {
     const newHouse =
       [
         {
-            name: 'Count Dooku',
             address: '1037 Southern Artery',
             description: 'Availiable Apartment in Faxon Commons',
             img: 'https://photos.zillowstatic.com/fp/b66c988c1d4909a594f7e61c6657cf94-cc_ft_1536.webp',
@@ -115,58 +127,44 @@ router.get('/seed', authRequired, async (req, res) => {
   })
 
 
-// Update Route 
-//lets make out route actually update the product after we submit the edit form
-router.put('/:id', authRequired, async (req, res) => {
+// UPDATE Route
+// PUT route to update a house by id
+router.put('/:id', upload.single('img'), async (req, res) => {
   try {
-      // Loop through the checkbox properties and update them
-      // similar to what we had in the create route in which we used the code we had in that route
-      for (const key in req.body){
-
-        if (req.body.hasOwnProperty(key)) {
-
-          // Check if the key represents a checkbox and has it "checked"
-          if (req.body[key] === "on") {
-            // If so, set its value to true
-            req.body[key] = true
-            // if its not checked, then set its value to false 
-          } else if (req.body[key] === "off") {
-            // Otherwise, set its value to false
-            req.body[key] = false
-          }
+    // Find the house by id
+    const house = await Houses.findById(req.params.id)
+    
+    // Loop through the checkbox properties and update them
+    for (const key in req.body) {
+      if (Object.prototype.hasOwnProperty.call(req.body, key)) {
+        // Check if the key represents a checkbox and has it "checked"
+        if (req.body[key] === "on") {
+          // If so, set its value to true
+          req.body[key] = true
+        } else if (req.body[key] === "off") {
+          // Otherwise, set its value to false
+          req.body[key] = false
         }
       }
+    }
 
-      // Find and update the house by id using async/await
-      const updatedHouse = await Houses.findByIdAndUpdate(req.params.id, req.body, {new: true})
+    // If an image was uploaded, update the img property
+    if (req.file) {
+      house.img = req.file.filename
+    }
 
-      console.log(updatedHouse)
-      // send us back to the show page after the update is made
-      res.render('show.ejs', {
-        house: updatedHouse
-      })
+    // Update the house with the new values
+    await house.updateOne(req.body)
+
+    // send us back to the show page after the update is made
+    res.render('show.ejs', {
+      house: house
+    })
   } catch (error) {
-      console.log(error)
-      res.send(error)
+    console.log(error)
+    res.send(error)
   }
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -178,7 +176,7 @@ router.put('/:id', authRequired, async (req, res) => {
 
 
 // Create Route 
-router.post('/', authRequired, async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     // because we have multiple fields that have check boxes we need to loop through them
     for (const key in req.body) {
@@ -214,11 +212,8 @@ router.post('/', authRequired, async (req, res) => {
 })
 
 
-
-
-
 // Edit Route 
-router.get('/:id/edit', authRequired, async (req, res) => {
+router.get('/:id/edit', async (req, res) => {
   try {
     const foundHouse = await Houses.findById(req.params.id)
     // find the id which is in req.params
@@ -233,30 +228,20 @@ router.get('/:id/edit', authRequired, async (req, res) => {
 
 
 
-
-
-
-
-
 // SHOW Route 
-router.get('/:id',authRequired, async (req, res) => {
+router.get('/:id', async (req, res) => {
     try {
         // the .exec() method is used to execute the query 
-      const foundHouse = await Houses.findById(req.params.id).exec();
+      const foundHouse = await Houses.findById(req.params.id).exec()
+      console.log(foundHouse)
       res.render('show.ejs', {
         house: foundHouse
       });
     } catch (error) {
-      console.log(error);
-      res.send(error);
+      console.log(error)
+      res.send(error)
     }
-  });
-
-
-
-
-
-
+  })
 
 
 // export the module 
