@@ -10,19 +10,30 @@
         <!-- Compiled and minified JavaScript -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
+        <!-- this link will allow us to use icons from font awesome -->
+        <script src="https://kit.fontawesome.com/f2bf2bfcf4.js" crossorigin="anonymous"></script>
+
     </head>
+
     <body>
-        <header>
+        
+        <!-- top of the page - header -->
+        <header class="green lighten-1">
+            <i class="fa-solid fa-dog"></i>
+
+
             <!-- link to sign out -->
             <a href="/users/signout">Sign Out</a>
+
+            <h1>Tillow! Main Index Page</h1>
         </header>
 
 
 
 
-        <h1>Tillow! Main Index Page</h1>
-    
         
+        <!-- main - middle of the page -->
+        <main>
 
         Here are your Houses
         
@@ -57,7 +68,19 @@
         </ul>
 
 
-         <!-- A link to add a new house -->
-         <a href="/houses/new">Create a New House</a>
+     
+
+
+        </main>
+
+
+
+        <!-- Footer - bottom of the page -->
+        <footer class="green lighten-1"> 
+            <!-- A link to add a new house -->
+            <a href="/houses/new">Create a New House</a>
+        </footer>
+
+
     </body>
 </html>

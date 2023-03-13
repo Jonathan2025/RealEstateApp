@@ -4,7 +4,7 @@
 const express = require('express')
 const router = express.Router()
 const Houses = require('../models/houses.js') //access the houses.js file
-const bodyParser = require('body-parser');
+const bodyParser = require('body-parser')
 const multer = require('multer') //multer will allow us to upload images when we submit the form 
 
 
