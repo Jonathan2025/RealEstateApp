@@ -239,15 +239,15 @@
 
               <div class="input-field col s3">
                   <select name="heating">
-                      <option value="" disabled selected>Heating</option>
-                      <option value="Furnace">Furnace</option>
-                      <option value="Boiler">Boiler</option>
-                      <option value="Heat Pump">Heat Pump</option>
-                      <option value="Hybrid Heating">Hybrid Heating</option>
-                      <option value="Ductless Mini-Splits">Ductless Mini-Splits</option>
-                      <option value="Radiant Heating">Radiant Heating</option>
-                      <option value="Baseboard Heater">Baseboard Heater</option>
-                      <option value="Other">Other</option>
+                    <option value="" disabled <% if (!house.heating) { %> selected <% } %> >Heating</option>
+                    <option value="Furnace" <% if (house.heating === 'Furnace') { %> selected <% } %>>Furnace</option>
+                    <option value="Boiler" <% if (house.heating === 'Boiler') { %> selected <% } %>>Boiler</option>
+                    <option value="Heat Pump" <% if (house.heating === 'Heat Pump') { %> selected <% } %>>Heat Pump</option>
+                    <option value="Hybrid Heating" <% if (house.heating === 'Hybrid Heating') { %> selected <% } %>>Hybrid Heating</option>
+                    <option value="Ductless Mini-Splits" <% if (house.heating === 'Ductless Mini-Splits') { %> selected <% } %>>Ductless Mini-Splits</option>
+                    <option value="Radiant Heating" <% if (house.heating === 'Radiant Heating') { %> selected <% } %>>Radiant Heating</option>
+                    <option value="Baseboard Heater" <% if (house.heating === 'Baseboard Heater') { %> selected <% } %>>Baseboard Heater</option>
+                    <option value="Other" <% if (house.heating === 'Other') { %> selected <% } %>>Other</option>
                   </select>
               </div>
               <div class="input-field col s3">
