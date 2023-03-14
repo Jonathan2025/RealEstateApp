@@ -252,11 +252,11 @@
               </div>
               <div class="input-field col s3">
                   <select name="cooling">
-                      <option value="" disabled selected>Cooling</option>
-                      <option value="Central Air">Central Air</option>
-                      <option value="Room Air Conditioner">Room Air Conditioner</option>
-                      <option value="Evaporative Coolers">Evaporative Coolers</option>
-                      <option value="Other">Other</option>
+                    <option value="" disabled <% if (!house.cooling) { %> selected <% } %> >Cooling</option>
+                    <option value="Central Air" <% if (house.cooling === 'Central Air') { %> selected <% } %>>Central Air</option>
+                    <option value="Room Air Conditioner" <% if (house.cooling === 'Room Air Conditioner') { %> selected <% } %>>Room Air Conditioner</option>
+                    <option value="Evaporative Coolers" <% if (house.cooling === 'Evaporative Coolers') { %> selected <% } %>>Evaporative Coolers</option>
+                    <option value="Other" <% if (house.cooling === 'Other') { %> selected <% } %>>Other</option>
                   </select>
               </div>
               <div class="input-field col s3">
