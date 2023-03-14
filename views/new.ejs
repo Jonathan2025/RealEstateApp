@@ -20,7 +20,7 @@
     <script src="https://kit.fontawesome.com/f2bf2bfcf4.js" crossorigin="anonymous"></script>
 
 </head>
-<body>
+<body style="background-image: url('https://w0.peakpx.com/wallpaper/284/788/HD-wallpaper-tiny-apartment-with-a-wonderful-view-city-window-apartment-view.jpg');background-size: cover;">
     
     <header class="green lighten-1">
         <a class="btn light-blue lighten-3" href="/houses">Back to Main Page</a>
@@ -29,15 +29,33 @@
 
 
     
-  <main style="background-image: url('https://w0.peakpx.com/wallpaper/284/788/HD-wallpaper-tiny-apartment-with-a-wonderful-view-city-window-apartment-view.jpg');background-size: contain; background-repeat: no-repeat;"> 
-
-    
+  <main> 
     <div class="row center-align" style="padding: 0px 0px 0px 50px;">
      <!-- set the size of the input rows on the form -->
-    <div class ="col s5 green lighten-3">
+    <div class ="col s6 green lighten-3">
     <form action="/houses" method="POST" enctype="multipart/form-data">
-        Address: <input type="text" name="address"/><br/>
-        City: <input type="text" name="city"> <br/>
+
+    <!-- make the form so that several fields can be on one row -->
+        <div class="row">
+            <div class="input-field col s5">
+                <input id="address" type="text" name="address"/>
+                <label for="address">Address</label>
+            </div>
+            <div class="input-field col s4">
+                <input id="city" type="text" name="city"/>
+                <label for="city">City</label>
+            </div>
+            <div class="input-field col s3">
+                <input id="zip" type="text" name="zip"/>
+                <label for="Zip">Zip</label>
+            </div>
+        </div>
+
+
+
+
+    
+   
 
         <div class="input-field">
             <select name="state">
@@ -97,23 +115,71 @@
           </div> <br>
 
 
+          <div class="row">
+            <div class="input-field col s6">
+                <input id="description" type="text" name="description"/>
+                <label for="description">Description</label>
+            </div>
+            <div class="input-field col s6">
+                <input id="image" type="file" name="img" accept="image/*"/>
+                <label for="image">Image</label>
+            </div>
+        </div>
 
 
+        <div class="row">
+            <div class="input-field col s3">
+                <input id="price" type="number" name="price" step="10000" min="0" name="price"/>
+                <label for="price">Price</label>
+            </div>
+            <div class="input-field col s3">
+                <input id="bedrooms" type="number" step="1" min="0" name="bedrooms"/>
+                <label for="bedrooms">Bedrooms</label>
+            </div>
+            <div class="input-field col s3">
+                <input id="bathrooms" type="number" step="1" min="0" name="bathrooms"/>
+                <label for="bathrooms">Bathrooms</label>
+            </div>
+            <div class="input-field col s3">
+                <input id="Sqft" type="number" step="100" min="0" name="sqft"/>
+                <label for="Sqft">Sqft</label>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="input-field col s3">
+                <input id="homeType" type="text" name="homeType" />
+                <label for="homeType">Home Type</label>
+            </div>
+            <div class="input-field col s3">
+                <input id="heating" type="text" name="heating"/>
+                <label for="heating">Heating</label>
+            </div>
+            <div class="input-field col s3">
+                <input id="cooling" type="text" name="cooling"/>
+                <label for="cooling">Cooling</label>
+            </div>
+            <div class="input-field col s3">
+                <input id="parking" type="text" name="parking"/>
+                <label for="parking">Parking</label>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="input-field col s4">
+                <input id="yearBuilt" type="number" name="yearBuilt" />
+                <label for="yearBuilt">Year Built</label>
+            </div>
+            <div class="input-field col s4">
+                <input id="appliancesIncluded" type="text" name="appliancesIncluded"/>
+                <label for="appliancesIncluded">Appliances Included</label>
+            </div>
+            <div class="input-field col s4">
+                <input id="amenities" type="text" name="amenities"/>
+                <label for="amenities">Amenities</label>
+            </div>
+        </div>
 
-
-        Zip Code: <input type="text" name="zip"> <br/>
-        Description: <input type="text" name="description"/><br/>
-        Image: <input type="file" name="img" accept="image/*" /><br/>
-        Price: <input type="number" step="1000" min="0" name="price"/><br/>
-        Bedrooms: <input type="number" step="1" min="0" name="bedrooms"/><br/>
-        Bathrooms: <input type="number" step="1" min="0" name="bathrooms"/><br/>
-        Sqft: <input type="number" step="50" min="0" name="sqft"/><br/>
-        Home Type: <input type="text" name="homeType"/><br/>
-        Heating: <input type="text" name="heating"/>
-        Cooling: <input type="text" name="cooling"/>
-        Parking: <input type="text" name="parking"/><br/>
-        Year Built: <input type="number" name="yearBuilt"/><br/>
-        Appliances Included: <input type="text" name="appliancesIncluded"/><br/>
         <label>
             <input type="checkbox" name="basement"/>
             <span>Basement</span>
@@ -140,10 +206,6 @@
        </label>
        <br>
 
-
-
-
-        Amenities: <input type="text" name="amenities"/><br/>
         Notes: <input type="text" name="notes"/><br/>
 
 
