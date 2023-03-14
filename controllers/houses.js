@@ -151,7 +151,6 @@ router.put('/:id', upload.single('img'), async (req, res) => {
     // If an image was uploaded, update the img property
     if (req.file) {
       house.img = req.file.filename
-      
     }
 
     // Update the house with the new values
