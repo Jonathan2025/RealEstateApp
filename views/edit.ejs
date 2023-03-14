@@ -226,16 +226,17 @@
           <div class="row">
               <div class="input-field col s3">
                   <select name="homeType">
-                      <option value="" disabled selected>Home Type</option>
-                      <option value="Single-Family">Single-Family</option>
-                      <option value="Multi-Family">Multi-Family</option>
-                      <option value="Townhouse">Townhouse</option>
-                      <option value="Apartment">Apartment</option>
-                      <option value="Condo">Condo</option>
-                      <option value="Co-Op">Co-Op</option>
-                      <option value="Other">Other</option>
+                    <option value="" disabled <% if (!house.homeType) { %> selected <% } %> >Home Type</option>
+                    <option value="Single-Family" <% if (house.homeType === 'Single-Family') { %> selected <% } %>>Single-Family</option>
+                    <option value="Multi-Family" <% if (house.homeType === 'Multi-Family') { %> selected <% } %>>Multi-Family</option>
+                    <option value="Townhouse" <% if (house.homeType === 'Townhouse') { %> selected <% } %>>Townhouse</option>
+                    <option value="Apartment" <% if (house.homeType === 'Apartment') { %> selected <% } %>>Apartment</option>
+                    <option value="Condo" <% if (house.homeType === 'Condo') { %> selected <% } %>>Condo</option>
+                    <option value="Co-Op" <% if (house.homeType === 'Co-Op') { %> selected <% } %>>Co-Op</option>
+                    <option value="Other" <% if (house.homeType === 'Other') { %> selected <% } %>>Other</option>
                   </select>
               </div>
+
               <div class="input-field col s3">
                   <select name="heating">
                       <option value="" disabled selected>Heating</option>
