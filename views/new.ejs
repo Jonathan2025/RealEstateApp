@@ -116,10 +116,17 @@
                 <input id="description" type="text" name="description"/>
                 <label for="description">Description</label>
             </div>
-            <div class="input-field col s6">
-                <input id="image" type="file" name="img" accept="image/*"/>
-                <label for="image">Image</label>
-            </div>
+           
+            <div class="file-field input-field col s6">
+                <div class="btn">
+                  <span>Choose file</span>
+                  <input id="image" type="file" name="img" accept="image/*">
+                </div>
+                <div class="file-path-wrapper">
+                  <input class="file-path validate" type="text" placeholder="Select an image">
+                </div>
+              </div>
+        
         </div>
 
 
@@ -143,34 +150,39 @@
         </div>
         
         <div class="row">
-            <!-- <div class="input-field col s3">
-                <input id="homeType" type="text" name="homeType" />
-                <label for="homeType">Home Type</label>
-            </div> -->
-
             <div class="input-field col s3">
                 <select name="homeType">
                     <option value="" disabled selected>Home Type</option>
                     <option value="Single-Family">Single-Family</option>
                     <option value="Multi-Family">Multi-Family</option>
+                    <option value="Townhouse">Townhouse</option>
                     <option value="Apartment">Apartment</option>
                     <option value="Condo">Condo</option>
                     <option value="Co-Op">Co-Op</option>
                     <option value="Other">Other</option>
                 </select>
-                
-            </div>
-
-
-
-
-            <div class="input-field col s3">
-                <input id="heating" type="text" name="heating"/>
-                <label for="heating">Heating</label>
             </div>
             <div class="input-field col s3">
-                <input id="cooling" type="text" name="cooling"/>
-                <label for="cooling">Cooling</label>
+                <select name="heating">
+                    <option value="" disabled selected>Heating</option>
+                    <option value="Furnace">Furnace</option>
+                    <option value="Boiler">Boiler</option>
+                    <option value="Heat Pump">Heat Pump</option>
+                    <option value="Hybrid Heating">Hybrid Heating</option>
+                    <option value="Ductless Mini-Splits">Ductless Mini-Splits</option>
+                    <option value="Radiant Heating">Radiant Heating</option>
+                    <option value="Baseboard Heater">Baseboard Heater</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="input-field col s3">
+                <select name="cooling">
+                    <option value="" disabled selected>Cooling</option>
+                    <option value="Central Air">Central Air</option>
+                    <option value="Room Air Conditioner">Room Air Conditioner</option>
+                    <option value="Evaporative Coolers">Evaporative Coolers</option>
+                    <option value="Other">Other</option>
+                </select>
             </div>
             <div class="input-field col s3">
                 <input id="parking" type="text" name="parking"/>
@@ -178,6 +190,8 @@
             </div>
         </div>
         
+
+
         <div class="row">
             <div class="input-field col s4">
                 <input id="yearBuilt" type="number" name="yearBuilt" />
@@ -219,8 +233,12 @@
        </label>
        <br>
 
-        Notes: <input type="text" name="notes"/><br/>
-
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="notes" type="text" name="notes" />
+                <label for="notes">Notes</label>
+            </div>
+        </div>
 
         <button class="btn green lighten-1" type="submit" name="action">Create House</button>
     </form>
