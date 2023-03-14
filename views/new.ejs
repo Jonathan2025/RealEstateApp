@@ -52,11 +52,7 @@
         </div>
 
 
-
-
     
-   
-
         <div class="input-field">
             <select name="state">
               <option value="" disabled selected>Choose your state</option>
@@ -147,10 +143,27 @@
         </div>
         
         <div class="row">
-            <div class="input-field col s3">
+            <!-- <div class="input-field col s3">
                 <input id="homeType" type="text" name="homeType" />
                 <label for="homeType">Home Type</label>
+            </div> -->
+
+            <div class="input-field col s3">
+                <select name="homeType">
+                    <option value="" disabled selected>Home Type</option>
+                    <option value="Single-Family">Single-Family</option>
+                    <option value="Multi-Family">Multi-Family</option>
+                    <option value="Apartment">Apartment</option>
+                    <option value="Condo">Condo</option>
+                    <option value="Co-Op">Co-Op</option>
+                    <option value="Other">Other</option>
+                </select>
+                
             </div>
+
+
+
+
             <div class="input-field col s3">
                 <input id="heating" type="text" name="heating"/>
                 <label for="heating">Heating</label>
