@@ -40,30 +40,23 @@
 
         
         <!-- main - middle of the page -->
+        <!-- using materialize's card images so that we can click on the images -->
         <main class="center-align">
-            <ul>
-                <% for(let i=0; i < houses.length; i++) { %>
-                    <li>
-                        <!-- Using materialize "masonry" in order to input a responsive grid for the images -->
-                        <div class ="container masonry">
-                            <!-- images to take up 1/3 of the availiable width and center the text -->
-                            <div class="col s6 center-align  green lighten-1" style="padding: 10px; display: inline-block; margin:10px;">
-                                
-                                 <!-- link to the house, clicking it will lead to the house show page -->
-                                 <a class = "green-text text-darken-4"href="/houses/<%=houses[i].id; %>">
-                                    <%=houses[i].address; %>
-                                </a>
-                                <br>
-                                
-                                    <img class="responsive-img" src="/images/<%= houses[i].img %>?v=<%= Date.now() %>" width="200" height="150">
-                                   
-                            </div>
-                    </li>
-                
+            <div class="row">
+              <% for(let i=0; i < houses.length; i++) { %>
+                <div class="col s12 m4">
+                  <div class="card">
+                    <div class="card-image">
+                      <a href="/houses/<%=houses[i].id %>">
+                        <img src="/images/<%= houses[i].img %>?v=<%= Date.now() %>" alt="<%=houses[i].address %>" width="200" height="210" style="border: 1px solid #66bb6a; padding: 5px; border-radius: 5px; background-color: #66bb6a;">
+                        <span class="card-title"><%=houses[i].address %></span>
+                      </a>
+                    </div>
+                  </div>
                 </div>
-                <% } %>
-            </ul>
-        </main>
+              <% } %>
+            </div>
+          </main>
        
 
 

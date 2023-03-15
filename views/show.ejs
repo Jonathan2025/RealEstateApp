@@ -41,6 +41,7 @@
   </header>
 
   
+  <main>
   <!-- put the image and the house information side by side -->
   <div class="row">
     <div class="col s12 m6">
@@ -48,28 +49,70 @@
     </div>
     
     
-    <div class="col s12 m6">
-      <main>
-        Price 
-        Bed 
-        Bath
-        Sqft
-        City 
-        stateZip 
-        Description 
-        Hometype 
-        Heating 
-        Cooling 
-        Parking 
-        Year Built 
-        Appliances Included 
-        Amenities
-        Notes
-      </main>
+    <div class="col s12 m6 green lighten-1">
+  
+        <div class="row">
+          <div class ="col s3">
+            $ <%= house.price %>
+          </div>
+          <div class ="col s3">
+            <%= house.bedrooms %> Bd
+          </div>
+          <div class ="col s3">
+            <%= house.bathrooms %> Bd
+          </div>
+          <div class ="col s3">
+            <%= house.sqft %> Sqft
+          </div>
+        </div>
+      
+        <div class="row">
+          <div class ="col s4">
+            <%= house.city %>
+          </div>
+          <div class ="col s4">
+            <%= house.state %>
+          </div>
+          <div class ="col s4">
+            <%= house.zip %>
+          </div>
+        </div>
+
+        <div class="row">
+          Description: <%= house.description %>
+        </div>
+        <div class="row">
+          <%= house.homeType %>
+        </div>
+        <div class="row">
+          Heating: <%= house.heating %>
+        </div>
+        <div class="row">
+          Cooling: <%= house.cooling %>
+        </div>
+        <div class="row">
+          Parking: <%= house.parking %>
+        </div>
+        <div class="row">
+          Year Built: <%= house.yearBuilt %>
+        </div>
+        <div class="row">
+          Appliances Included: <%= house.appliancesIncluded %>
+        </div>
+        <div class="row">
+          Amenities: <%= house.amenities%>
+        </div>
+        <div class="row">
+          Notes: <%= house.notes%>
+        </div>
+        
+
+        
+    
     </div>
   </div>
     
-    
+</main>
    
     
     
