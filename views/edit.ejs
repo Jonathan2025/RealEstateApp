@@ -20,9 +20,14 @@
 
   </head>
   <body>
-    <h1>Edit House Page</h1>
     
-
+    
+    <header class="green lighten-1">
+      <a class="btn teal darken-1" href="/houses">Back to Main Page</a>
+      <a class="btn teal darken-1" href="/houses/<%= house.id %>">Back to Show Page</a>
+      <a style="display: inline-block;" class="btn teal darken-1" href="/users/signout">Sign Out</a>
+      <h1 class="center-align">Edit Existing House </h1>
+    </header>
 
     <main> 
       <div class="row center-align" style="padding: 0px 0px 0px 50px;">
@@ -104,12 +109,6 @@
             </select>
             <label>Select a state</label>
           </div> <br>
-
-
-
-         
-             
-  
   
             <div class="row">
               <div class="input-field col s6">
@@ -208,11 +207,6 @@
               </div>
           </div>
         
-         
-
-            
-
-
          <br>
   
           <div class="row">
@@ -233,20 +227,11 @@
   </main>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
+   <!-- Footer - bottom of the page all elements displayed next to each other -->
+   <footer class="green lighten-1 center-align"> 
+      <i class="fa-solid fa-dog" style="font-size: 3em; display: inline-block;"></i>
+      <h3 style="display: inline-block;">Tillow!</h3>
+    </footer>
 
 <!-- Initialize dropdown menu code from materialize documentation-->
 <script>
