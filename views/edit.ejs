@@ -21,81 +21,7 @@
   </head>
   <body>
     <h1>Edit House Page</h1>
-    <!-- change the route to POST -->
-    <!-- <form action="/houses/<%= house.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
-      Address: <input type="text" name="address" value="<%=house.address%>"> <br/>
-      City: <input type="text" name="city" value="<%=house.city%>"> <br/>
-      State: <input type="text" name="state" value="<%=house.state%>"> <br/>
-      Zip Code: <input type="text" name="zip" value="<%=house.zip%>"> <br/>
-      Description: <input type="text" name="description" value="<%=house.description%>"> <br/>
-      Image: <input type="file" name="img" > <br> 
-      Price: <input type="number" step="1000" min="0" name="price" value="<%=house.price%>"> <br/>
-      Bedrooms: <input type="number" step="1" min="0" name="bedrooms" value="<%=house.bedrooms%>"/><br/>
-      Bathrooms: <input type="number" step="1" min="0" name="bathrooms" value="<%=house.bathrooms%>"/><br/>
-      Sqft: <input type="number" step="50" min="0" name="sqft" value="<%=house.sqft%>"/><br/>
-      Home Type: <input type="text" name="homeType" value="<%=house.homeType%>"/><br/>
-      Heating: <input type="text" name="heating" value="<%=house.heating%>"/><br/>
-      Cooling: <input type="text" name="cooling" value="<%=house.cooling%>"/><br/>
-      Parking: <input type="text" name="parking" value="<%=house.parking%>"/><br/>
-      Year Built: <input type="number" name="yearBuilt" value="<%=house.yearBuilt%>"/><br/>
-      Appliances Included: <input type="text" name="appliancesIncluded" value="<%=house.appliancesIncluded%>"/><br/>
-
-
-
-      Basement: 
-      <input type="checkbox" name="basement" 
-      <% if(house.basement ===true){ %>
-        checked
-        <% } %>
-        /> 
-
-      Garage: 
-      <input type="checkbox" name="garage" 
-      <% if(house.garage ===true){ %>
-        checked
-        <% } %>
-        /> 
-
-      Kitchen: 
-      <input type="checkbox" name="kitchen" 
-      <% if(house.kitchen ===true){ %>
-        checked
-        <% } %>
-        /> 
-
-      Living Room: 
-      <input type="checkbox" name="livingRoom" 
-      <% if(house.livingRoom ===true){ %>
-        checked
-        <% } %>
-        /> 
-
-      Diving Room: 
-      <input type="checkbox" name="diningRoom" 
-      <% if(house.diningRoom ===true){ %>
-        checked
-        <% } %>
-        /> 
-
-      Attic: 
-      <input type="checkbox" name="attic" 
-      <% if(house.attic ===true){ %>
-        checked
-        <% } %>
-        /> 
-
-
-        <br>
-
-
-        Amenities: <input type="text" name="amenities" value="<%=house.amenities%>"/><br/>
-        Notes: <input type="text" name="notes" value="<%=house.notes%>"/><br/>
-      
-      
-      <br/>
-
-      <input type="submit" value="Edit House">
-    </form> -->
+    
 
 
     <main> 
@@ -281,31 +207,12 @@
                   <label for="amenities">Amenities</label>
               </div>
           </div>
-  
-          <label>
-              <input type="checkbox" name="basement"/>
-              <span>Basement</span>
-         </label>
-          <label>
-              <input type="checkbox" name="garage"/>
-              <span>Garage</span>
-         </label>
-          <label>
-              <input type="checkbox" name="Kitchen"/>
-              <span>Kitchen</span>
-         </label>
-          <label>
-              <input type="checkbox" name="livingRoom"/>
-              <span>Living Room</span>
-         </label>
-          <label>
-              <input type="checkbox" name="diningRoom"/>
-              <span>Dining Room</span>
-         </label>
-          <label>
-              <input type="checkbox" name="attic"/>
-              <span>Attic</span>
-         </label>
+        
+         
+
+            
+
+
          <br>
   
           <div class="row">
@@ -346,6 +253,8 @@
   $(document).ready(function(){
    $('select').formSelect();
  });
+
+
 
 
 </script>

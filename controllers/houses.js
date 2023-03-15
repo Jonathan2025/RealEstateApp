@@ -134,10 +134,13 @@ router.put('/:id', upload.single('img'), async (req, res) => {
     // Find the house by id
     const house = await Houses.findById(req.params.id)
     
+    console.log(req.body)
+    console.log(req.body.livingRoom)
     // Loop through the checkbox properties and update them
     for (const key in req.body) {
+      
       if (Object.prototype.hasOwnProperty.call(req.body, key)) {
-        // Check if the key represents a checkbox and has it "checked"
+        //Check if the key represents a checkbox and has it "checked"
         if (req.body[key] === "on") {
           // If so, set its value to true
           req.body[key] = true
@@ -147,18 +150,15 @@ router.put('/:id', upload.single('img'), async (req, res) => {
         }
       }
     }
-
     // If an image was uploaded, update the img property
-    if (req.file) {
+  if (req.file) {
       house.img = req.file.filename
     }
-
     // Update the house with the new values
     await house.updateOne(req.body)
     
     await house.save()
-
-    
+   
     // send us back to the show page after the update is made
     res.render('show.ejs', {
       house: house
@@ -168,6 +168,7 @@ router.put('/:id', upload.single('img'), async (req, res) => {
     res.send(error)
   }
 })
+
 
 
 
