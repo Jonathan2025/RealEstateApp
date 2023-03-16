@@ -56,7 +56,7 @@ router.use(bodyParser.urlencoded({ extended: true }))
 
 
 // Index Route 
-router.get("/", async(req,res)=> {
+router.get("/",authRequired, async(req,res)=> {
     try{
         const allHouses = await Houses.find({})
         res.render('index.ejs', {houses:allHouses})
@@ -68,13 +68,13 @@ router.get("/", async(req,res)=> {
 
 
 // New Route
-router.get("/new", async(req,res) => {
+router.get("/new", authRequired, async(req,res) => {
   res.render('new.ejs')
 })
 
 
 // Delete Route 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', authRequired, async (req, res) => {
   try {
     const deleteHouse = await Houses.findByIdAndDelete(req.params.id)
     // find the id which is in req.params
@@ -129,7 +129,7 @@ router.get('/seed', async (req, res) => {
 
 // UPDATE Route
 // PUT route to update a house by id
-router.put('/:id', upload.single('img'), async (req, res) => {
+router.put('/:id', authRequired, upload.single('img'), async (req, res) => {
   try {
     // Find the house by id
     const house = await Houses.findById(req.params.id)
@@ -181,7 +181,7 @@ router.put('/:id', upload.single('img'), async (req, res) => {
 
 
 // Create Route 
-router.post('/', upload.single('img'), async (req, res) => {
+router.post('/',authRequired, upload.single('img'), async (req, res) => {
   try {
     // Loop through the checkbox properties and update them
     for (const key in req.body) {
@@ -218,7 +218,7 @@ router.post('/', upload.single('img'), async (req, res) => {
 
 
 // Edit Route 
-router.get('/:id/edit', async (req, res) => {
+router.get('/:id/edit',authRequired, async (req, res) => {
   try {
     const foundHouse = await Houses.findById(req.params.id)
     // find the id which is in req.params
@@ -234,7 +234,7 @@ router.get('/:id/edit', async (req, res) => {
 
 
 // SHOW Route 
-router.get('/:id', async (req, res) => {
+router.get('/:id',authRequired, async (req, res) => {
     try {
         // the .exec() method is used to execute the query 
       const foundHouse = await Houses.findById(req.params.id).exec()
