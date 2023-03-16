@@ -19,7 +19,7 @@
         <script src="https://kit.fontawesome.com/f2bf2bfcf4.js" crossorigin="anonymous"></script>
 </head>
 
-<body class="teal lighten-1">
+<body style="background-image: url('https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?cs=srgb&dl=pexels-vecislavas-popa-1571460.jpg&fm=jpg'); background-size: cover;">
   
   
   <!-- top of the page - header -->
@@ -35,54 +35,49 @@
       
       <div id="title" class="center-align">
       <i style="font-size: 3em; display: inline-block;" class="fa-solid fa-dog green-text text-darken-4"></i>
-      <h1 class="green-text text-darken-4"> <%=house.address %></h1>
+      <h2 style="display: inline-block;" class="green-text text-darken-4"> <%=house.address %></h2>
 
       </div>
   </header>
+  <br>
 
   
-  <main>
+  <main class="center-align">
   <!-- put the image and the house information side by side -->
   <div class="row">
     <div class="col s12 m6">
-      <img src="/images/<%= house.img %>?v=<%= Date.now() %>" width="400" height="300">
+      <div class="card">
+        <div class="card-image">
+
+            <img src="/images/<%= house.img %>?v=<%= Date.now() %>" width="400" height="300" style="border: 1px solid #66bb6a; padding: 5px; border-radius: 5px; background-color: #66bb6a;">
+        </div>
+      </div>
+
+
+
+
+
+
+      <!-- <img src="/images/<%= house.img %>?v=<%= Date.now() %>" width="400" height="300"> -->
     </div>
     
     
-    <div class="col s12 m6 green lighten-1">
-  
+    <div class="col s12 m3 green lighten-1" style="opacity: 0.8;">
+
         <div class="row">
-          <div class ="col s3">
-            $ <%= house.price %>
-          </div>
-          <div class ="col s3">
-            <%= house.bedrooms %> Bd
-          </div>
-          <div class ="col s3">
-            <%= house.bathrooms %> Bd
-          </div>
-          <div class ="col s3">
-            <%= house.sqft %> Sqft
-          </div>
+            <h5>$ <%= house.price %> </h5> <%= house.bedrooms %> Bd | <%= house.bathrooms %> Bath | <%= house.sqft %> Sqft
         </div>
-      
+        
         <div class="row">
-          <div class ="col s4">
-            <%= house.city %>
-          </div>
-          <div class ="col s4">
-            <%= house.state %>
-          </div>
-          <div class ="col s4">
-            <%= house.zip %>
-          </div>
-        </div>
+          <%= house.city %> | <%= house.state %> | <%= house.zip %>
+      </div>
+
 
         <div class="row">
           Description: <%= house.description %>
         </div>
         <div class="row">
-          <%= house.homeType %>
+          Hometype: <%= house.homeType %>
         </div>
         <div class="row">
           Heating: <%= house.heating %>
