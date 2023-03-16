@@ -7,11 +7,6 @@ const app = express();
 const methodOverride = require('method-override')
 
 
-
-
-require('dotenv').config();
-const Houses = require('./models/houses.js')
-
 // import the houses controller, now we also need to where they will route to for houses
 const housesController = require('./controllers/houses.js')
 
@@ -19,8 +14,19 @@ const housesController = require('./controllers/houses.js')
 const userController = require('./controllers/users.js')
 
 
+
 // import express sessions
 const session = require('express-session')
+
+// Require mongoose
+const mongoose = require('mongoose')
+const Houses = require('./models/houses.js')
+require('dotenv').config();
+
+
+
+
+
 
 
 //Sessions
@@ -40,8 +46,7 @@ app.use(session({
 
 
 
-// Require mongoose
-const mongoose = require('mongoose')
+
 
 
 // Establish a Connection to MongoDB
