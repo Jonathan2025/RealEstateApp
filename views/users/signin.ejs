@@ -3,26 +3,72 @@
   <head>
     <meta charset="utf-8">
     <title>User Sign in</title>
-  </head>
-  <body>
 
+    <!-- Here we imported the CND so that we can be able to use Materialize CSS Framework -->
+    <!-- Import Materialize CSS Framework -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Import jQuery which will allow us to use the drop down menu on the form-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Import Materialize JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+    <!-- this link will allow us to use icons from font awesome -->
+    <script src="https://kit.fontawesome.com/f2bf2bfcf4.js" crossorigin="anonymous"></script>
+
+  </head>
+
+
+  <body style="background-image: url('https://hgtvhome.sndimg.com/content/dam/images/hgtv/fullset/2017/5/8/0/HUHH2017-Modern-Masterpieces_Clyde-Hill-WA_1.jpg.rend.hgtvcom.966.644.suffix/1494266003356.jpeg'); background-size: cover; height: 100vh;" >
+   
+    <!-- top of the page - header -->
+    <header class="green lighten-1">
+      <div id="title" class="center-align">
+      <i style="font-size: 4em; display: inline-block;" class="fa-solid fa-dog green-text text-darken-4"></i>
+      <h1 class="green-text text-darken-4" style ="display: inline-block;">Tillow!</h1>
+      </div>
+  </header>
+
+
+
+
+
+  <main style="margin-left: 20px;">
     <h1>Sign In</h1>
     <p>Please sign in in order you access your house app!</p>
-    <form action="/users/signin" method="POST">
-      <fieldset>
-        <label for="username">Username:</label>
-        <input type="text" name="username">
-      </fieldset>
-      <fieldset>
-        <label for="password">Password:</label>
-        <input type="password" name="password">
-      </fieldset>
-      <input type="submit" value="Sign In">
-    </form>
+  
+    
+    <div class="row">
+      <form action="/users/signin" method="POST" class="col s4">
+        <fieldset class="green lighten-3">
+          <label for="username">Username:</label>
+          <input type="text" name="username">
+        </fieldset>
+        <fieldset class="green lighten-3">
+          <label for="password">Password:</label>
+          <input type="password" name="password">
+        </fieldset>
+        
+        <input class="btn" type="submit" value="Sign In">
+      </form>
+    </div>
+
     <br>
+
+ 
     <!-- link to register IF the user has no account already -->
-    No account? Create an Account Here!
-    <br>
-    <a href="/users/register">Create an Account</a>
+    <a class ="btn teal darken-1" href="/users/register">Create an Account</a>
+
+  </main>
+
+
+
+
+   
+
+
+
   </body>
 </html>
