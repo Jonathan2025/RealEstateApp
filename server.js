@@ -50,12 +50,24 @@ app.use(session({
 
 
 // Establish a Connection to MongoDB
-mongoose.connect(process.env.DATABASE_URL, {
-    // remove the depracation warnings
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
+// mongoose.connect(process.env.DATABASE_URL, {
+//     // remove the depracation warnings
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
 
+// })
+
+
+// DATABASE CONNECTION to MongoDB when we deploy to heroku
+// How to connect to the database either via heroku or locally
+const MONGODB_URI = process.env.MONGODB_URI // Link is from teh .env file 
+mongoose.set('strictQuery', true) // only things from the schema will be sent to the database 
+// also removes depracation warnings 
+mongoose.connect(MONGODB_URI, {
+    useNewUrlParser: false,
 })
+
+
 
 
 // Mongo error/success
