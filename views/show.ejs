@@ -17,7 +17,7 @@
 
 
 
-    <!-- Add the OpenLayers CSS file to your HTML document -->
+    <!-- Add the OpenLayers CSS file  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/openlayers/4.6.5/ol.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/openlayers/4.6.5/ol.js"></script>
 
@@ -112,11 +112,41 @@
 
 <!-- Create a div to hold the map -->
 <div id="map" style="height: 210px; width: 400px;"></div>
+     
 
-<!-- linking the script tag with the code we have in map.js  -->
-<script type="module">
-  import { initializeMap } from '/maps.js';
-  initializeMap();
+<!-- The below code will create the map that we will show on the page -->
+<script>
+  async function geocodeAddress(address, city, state, zip) {
+    const query = `${address}, ${city}, ${state}, ${zip}`;
+    const url = `https://nominatim.openstreetmap.org/search/${encodeURIComponent(query)}?format=json&addressdetails=1&limit=1`
+    const response = await fetch(url)
+    const json = await response.json()
+    if (json && json.length > 0) {
+      const result = json[0]
+      return [parseFloat(result.lon), parseFloat(result.lat)]
+    }
+    return null
+  }
+
+
+
+
+  async function initializeMap() {
+    const coordinates = await geocodeAddress('<%= house.address %>', '<%= house.city %>', '<%= house.state %>', '<%= house.zip %>')
+    const map = new ol.Map({
+      target: 'map',
+      layers: [
+        new ol.layer.Tile({
+          source: new ol.source.OSM(),
+        })
+      ],
+      view: new ol.View({
+        center: ol.proj.fromLonLat(coordinates),
+        zoom: 14,
+      })
+    })
+  }
+  initializeMap()
 </script>
 
 
