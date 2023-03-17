@@ -36,15 +36,15 @@
     <!-- make the form so that several fields can be on one row -->
     <div class="row">
         <div class="input-field col s5">
-            <input id="address" type="text" name="address"/>
+            <input id="address" type="text" name="address" required/>
             <label for="address">Address</label>
         </div>
         <div class="input-field col s4">
-            <input id="city" type="text" name="city"/>
+            <input id="city" type="text" name="city" required/>
             <label for="city">City</label>
         </div>
         <div class="input-field col s3">
-            <input id="zip" type="text" name="zip"/>
+            <input id="zip" type="text" name="zip" required/>
             <label for="Zip">Zip</label>
         </div>
     </div>
@@ -52,7 +52,7 @@
 
     
     <div class="input-field">
-        <select name="state">
+        <select name="state" required>
               <option value="" disabled selected>Choose your state</option>
               <option value="AL">Alabama</option>
               <option value="AK">Alaska</option>
@@ -118,7 +118,7 @@
         <div class="file-field input-field col s6">
             <div class="btn">
                 <span>Choose file</span>
-                <input id="image" type="file" name="img" accept="image/*">
+                <input id="image" type="file" name="img" accept="image/*" required>
             </div>
             <div class="file-path-wrapper">
                 <input class="file-path validate" type="text" placeholder="Select an image">
@@ -129,7 +129,7 @@
 
         <div class="row">
             <div class="input-field col s3">
-                <input id="price" type="number" name="price" step="10000" min="0" name="price"/>
+                <input id="price" type="number" name="price" step="10000" min="0" name="price" required/>
                 <label for="price">Price</label>
             </div>
             <div class="input-field col s3">
@@ -191,7 +191,7 @@
 
         <div class="row">
             <div class="input-field col s4">
-                <input id="yearBuilt" type="number" name="yearBuilt" />
+                <input id="yearBuilt" type="number" name="yearBuilt" step="1" min="0"/>
                 <label for="yearBuilt">Year Built</label>
             </div>
             <div class="input-field col s4">

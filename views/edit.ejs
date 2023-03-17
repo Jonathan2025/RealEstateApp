@@ -35,22 +35,22 @@
           <!-- make the form so that several fields can be on one row -->
           <div class="row">
               <div class="input-field col s5">
-                  <input id="address" type="text" name="address" value="<%=house.address%>"/>
+                  <input id="address" type="text" name="address" value="<%=house.address%>" required/>
                   <label for="address">Address</label>
               </div>
               <div class="input-field col s4">
-                  <input id="city" type="text" name="city" value="<%=house.city%>"/>
+                  <input id="city" type="text" name="city" value="<%=house.city%>"required/>
                   <label for="city">City</label>
               </div>
               <div class="input-field col s3">
-                  <input id="zip" type="text" name="zip" value="<%=house.zip%>"/>
+                  <input id="zip" type="text" name="zip" value="<%=house.zip%>" required/>
                   <label for="Zip">Zip</label>
               </div>
           </div>
   
   
           <div class="input-field">
-            <select name="state">
+            <select name="state" required>
               <!-- here we are showing the state that was selected in the dropdown initially -->
               <option value="" disabled<% if (!house.state) { %> selected <% } %> >Choose your state</option>
               <option value="AL" <% if (house.state === 'AL') { %> selected <% } %>>Alabama</option>
@@ -128,7 +128,7 @@
   
           <div class="row">
               <div class="input-field col s3">
-                  <input id="price" type="number" name="price" step="10000" min="0" name="price" value="<%=house.price%>"/>
+                  <input id="price" type="number" name="price" step="10000" min="0" name="price" value="<%=house.price%>" required/>
                   <label for="price">Price</label>
               </div>
               <div class="input-field col s3">
@@ -191,7 +191,7 @@
   
           <div class="row">
               <div class="input-field col s4">
-                  <input id="yearBuilt" type="number" name="yearBuilt" value="<%=house.yearBuilt%>"/>
+                  <input id="yearBuilt" type="number" name="yearBuilt" step="1" min="0" value="<%=house.yearBuilt%>"/>
                   <label for="yearBuilt">Year Built</label>
               </div>
               <div class="input-field col s4">
