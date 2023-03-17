@@ -8,14 +8,10 @@
     <!-- Here we imported the CND so that we can be able to use Materialize CSS Framework -->
     <!-- Import Materialize CSS Framework -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
     <!-- Import jQuery which will allow us to use the drop down menu on the form-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
     <!-- Import Materialize JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
-
     <!-- this link will allow us to use icons from font awesome -->
     <script src="https://kit.fontawesome.com/f2bf2bfcf4.js" crossorigin="anonymous"></script>
 
@@ -38,25 +34,25 @@
     <form action="/houses" method="POST" enctype="multipart/form-data">
 
     <!-- make the form so that several fields can be on one row -->
-        <div class="row">
-            <div class="input-field col s5">
-                <input id="address" type="text" name="address"/>
-                <label for="address">Address</label>
-            </div>
-            <div class="input-field col s4">
-                <input id="city" type="text" name="city"/>
-                <label for="city">City</label>
-            </div>
-            <div class="input-field col s3">
-                <input id="zip" type="text" name="zip"/>
-                <label for="Zip">Zip</label>
-            </div>
+    <div class="row">
+        <div class="input-field col s5">
+            <input id="address" type="text" name="address"/>
+            <label for="address">Address</label>
         </div>
+        <div class="input-field col s4">
+            <input id="city" type="text" name="city"/>
+            <label for="city">City</label>
+        </div>
+        <div class="input-field col s3">
+            <input id="zip" type="text" name="zip"/>
+            <label for="Zip">Zip</label>
+        </div>
+    </div>
 
 
     
-        <div class="input-field">
-            <select name="state">
+    <div class="input-field">
+        <select name="state">
               <option value="" disabled selected>Choose your state</option>
               <option value="AL">Alabama</option>
               <option value="AK">Alaska</option>
@@ -113,22 +109,21 @@
           </div> <br>
 
 
-          <div class="row">
+        <div class="row">
             <div class="input-field col s6">
                 <input id="description" type="text" name="description"/>
                 <label for="description">Description</label>
             </div>
            
-            <div class="file-field input-field col s6">
-                <div class="btn">
-                  <span>Choose file</span>
-                  <input id="image" type="file" name="img" accept="image/*">
-                </div>
-                <div class="file-path-wrapper">
-                  <input class="file-path validate" type="text" placeholder="Select an image">
-                </div>
-              </div>
-        
+        <div class="file-field input-field col s6">
+            <div class="btn">
+                <span>Choose file</span>
+                <input id="image" type="file" name="img" accept="image/*">
+            </div>
+            <div class="file-path-wrapper">
+                <input class="file-path validate" type="text" placeholder="Select an image">
+            </div>
+            </div>
         </div>
 
 
@@ -264,13 +259,11 @@
 
 
 
-<!-- Initialize dropdown menu code from materialize documentation-->
+<!-- Initialize dropdown menu code from materialize documentation using JSON-->
 <script>
    $(document).ready(function(){
     $('select').formSelect();
   });
-
-
 </script>
 
 
