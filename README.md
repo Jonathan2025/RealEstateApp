@@ -42,5 +42,8 @@ As a home buyer, I want to be able to edit information in case houses that I am 
 3) I want to add in the show page a status that tells you whether or not you are ready to make a down payment on that specific house based on how much money that you have saved up.
 4)Originally I attempted to add user authentication so that users needed to sign in and are able to access their own houses. However when I attempted to do this, I it was not separating the user's houses from other accounts. Again, due to the tight project deadline I decided to remove this feature for now and make it a strech goal.
   
+ # Citations of Resources and Documentation used for the Project
+ [Project 2 Citations.docx](https://github.com/Jonathan2025/RealEstateApp/files/11006665/Project.2.Citations.docx)
+
 
 
