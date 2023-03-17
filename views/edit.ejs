@@ -4,21 +4,18 @@
     <meta charset="utf-8">
     <title>Edit a House</title>
 
-    <!-- Here we imported the CND so that we can be able to use Materialize CSS Framework -->
-    <!-- Import Materialize CSS Framework -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
-    <!-- Import jQuery which will allow us to use the drop down menu on the form-->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-    <!-- Import Materialize JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
-
-    <!-- this link will allow us to use icons from font awesome -->
-    <script src="https://kit.fontawesome.com/f2bf2bfcf4.js" crossorigin="anonymous"></script>
+      <!-- Here we imported the CND so that we can be able to use Materialize CSS Framework -->
+      <!-- Import Materialize CSS Framework -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+      <!-- Import jQuery which will allow us to use the drop down menu on the form-->
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <!-- Import Materialize JavaScript -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+      <!-- this link will allow us to use icons from font awesome -->
+      <script src="https://kit.fontawesome.com/f2bf2bfcf4.js" crossorigin="anonymous"></script>
 
   </head>
+
   <body style="background-image: url('https://i.insider.com/5d0a543db587c62f1049fc18?width=700'); background-size: cover;"></body>
     
     
@@ -26,17 +23,16 @@
       <a class="btn teal darken-1" href="/houses">Back to Main Page</a>
       <a class="btn teal darken-1" href="/houses/<%= house.id %>">Back to Show Page</a>
       <!-- <a style="display: inline-block;" class="btn teal darken-1" href="/users/signout">Sign Out</a> -->
-    
       <h1 class="green-text text-darken-4 center-align">Edit Existing House </h1>
     </header>
 
-    <main> 
+  <main> 
       <div class="row center-align" style="padding: 0px 0px 0px 50px;">
        <!-- set the size of the input rows on the form -->
       <div class ="col s6 offset-s3 green lighten-3" >
         <form action="/houses/<%= house.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
   
-      <!-- make the form so that several fields can be on one row -->
+          <!-- make the form so that several fields can be on one row -->
           <div class="row">
               <div class="input-field col s5">
                   <input id="address" type="text" name="address" value="<%=house.address%>"/>
@@ -240,13 +236,7 @@
    $('select').formSelect();
  });
 
-
-
-
 </script>
-
-
-
 
 
 
