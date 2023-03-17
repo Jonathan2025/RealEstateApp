@@ -1,3 +1,4 @@
+// this schema is for the users
 const mongoose = require('mongoose')
 
 const userSchema = new mongoose.Schema({

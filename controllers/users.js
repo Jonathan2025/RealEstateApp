@@ -1,3 +1,6 @@
+// for now we actually wont be implementing the user authentication for now due to time constraints, BUT in the future when we come back 
+// we can add the feature
+
 // import bcrypt package
 const bcrypt = require('bcrypt')
 const express = require('express')
