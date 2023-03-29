@@ -13,8 +13,6 @@ const housesController = require('./controllers/houses.js')
 // import the users controller 
 const userController = require('./controllers/users.js')
 
-
-
 // import express sessions
 const session = require('express-session')
 
@@ -24,7 +22,14 @@ const Houses = require('./models/houses.js')
 require('dotenv').config();
 
 
-
+// DATABASE CONNECTION to MongoDB when we deploy to heroku
+// How to connect to the database either via heroku or locally
+const MONGODB_URI = process.env.MONGODB_URI // Link is from teh .env file 
+mongoose.set('strictQuery', true) // only things from the schema will be sent to the database 
+// also removes depracation warnings 
+mongoose.connect(MONGODB_URI, {
+    useNewUrlParser: false,
+})
 
 
 
@@ -58,14 +63,7 @@ app.use(session({
 // })
 
 
-// DATABASE CONNECTION to MongoDB when we deploy to heroku
-// How to connect to the database either via heroku or locally
-const MONGODB_URI = process.env.MONGODB_URI // Link is from teh .env file 
-mongoose.set('strictQuery', true) // only things from the schema will be sent to the database 
-// also removes depracation warnings 
-mongoose.connect(MONGODB_URI, {
-    useNewUrlParser: false,
-})
+
 
 
 
