@@ -52,7 +52,7 @@ router.use(bodyParser.urlencoded({ extended: true }))
 router.get("/", async(req,res)=> {
     try{
         const allHouses = await Houses.find({})
-        res.render('index.ejs', {houses:allHouses})
+        res.render('index.ejs',{ pageTitle: 'Tillow! Index Page', houses: allHouses })
     } catch(error){
         console.log(error)
         res.send(error)
