@@ -222,6 +222,7 @@ router.get('/:id', async (req, res) => {
       const foundHouse = await Houses.findById(req.params.id).exec()
       console.log("Show route" + foundHouse)
       res.render('show.ejs', {
+        pageTitle: 'Show Page',
         house: foundHouse
       });
     } catch (error) {
