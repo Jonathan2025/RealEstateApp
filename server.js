@@ -88,7 +88,6 @@ app.use(methodOverride('_method'))
 app.use(express.static('public'))
 
 
-
 // INDUCES - Routes (will eventually go to the controllers)
 app.use('/houses', housesController)
 
