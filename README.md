@@ -20,8 +20,8 @@ When I was a freshman in college, I learned about real estate rental properties 
 This project can be of great use for anyone because everyone is looking for a place to rent/buy or they are looking for a place to invest in. Sometimes making a decision to buy/rent a place can be really hard as there can be many options out there and there can be many factors to keep track of like the number of rooms, the price, the amenities, whether the house is near a grocery store. In other words there's just so many things to keep track of for such a big decision to be made. But this app makes that process easier. 
 
 # Original Wireframes
-<img width="493" alt="Wireframe1" src="./images/wireframe1.png">
-<img width="492" alt="Wireframe2" src="./images/wireframe2.png">
+<img width="493" alt="Wireframe1" src="./projectImages/wireframe1.png">
+<img width="492" alt="Wireframe2" src="./projectImages/wireframe2.png">
 
 
 
