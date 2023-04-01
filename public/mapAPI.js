@@ -4,6 +4,10 @@
   // Function geocodeAddress takes an address, city, state and zip --> convert them into lat and long values 
   export async function geocodeAddress(address, city, state, zip) {
     const query = `${address}, ${city}, ${state}, ${zip}`
+
+    console.log("Query", query)
+
+
     // because OpenLayer API by itself cannot directly the 4 parameters above and give a location, we need to use Openstreetmap to take the 4 parameters and 
     // then return us a latitude and longitude, that initializeMap can then use
     const url = `https://nominatim.openstreetmap.org/search/${encodeURIComponent(query)}?format=json&addressdetails=1&limit=1`
@@ -26,12 +30,12 @@
 
 
   // the initializeMap function will use the geocodeAddress from above to create a map of the area
-  export async function initializeMap() {
+  export async function initializeMap(address, city, state, zip) {
 
 
     try{
     // coordinates call to the geocodeAddress above
-    const coordinates = await geocodeAddress('<%= house.address %>', '<%= house.city %>', '<%= house.state %>', '<%= house.zip %>')
+    const coordinates = await geocodeAddress(address, city, state, zip)
     // then we cretae an OpenLayers map object which has the following
     const map = new ol.Map({
       // target - where the map will be displayed (in this case it will be the map div above)
@@ -57,4 +61,4 @@
 }
 
 
-initializeMap()
+// // need to pass in the parameters from show.ejs

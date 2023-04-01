@@ -115,7 +115,14 @@
 
 
 <!-- We will import mapAPI.js as it will show the map on the page -->
-<script type="module" src="/mapAPI.js"></script>
+<script src="/mapAPI.js"></script>
+
+<script>
+  // Call initializeMap function with house details
+  initializeMap('<%= house.address %>', '<%= house.city %>', '<%= house.state %>', '<%= house.zip %>');
+</script>
+
+
 
 
       
