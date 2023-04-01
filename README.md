@@ -1,13 +1,5 @@
-<<<<<<< HEAD
-# Real Estate App
-Tillo - The Ultimate Real Estate App!
-=======
 # RealEstateApp
 Tillow - The Ultimate Real Estate App!
-
-# Preview of App
-<img width="1337" alt="Screenshot 2023-03-17 at 5 39 46 PM" src="https://user-images.githubusercontent.com/118234157/226058310-7363b2a3-4a99-4302-b930-9062e37313e1.png">
->>>>>>> f815d1f7c408cf624e91395ba7402044f17fe22e
 
 # Preview of App 
 <img width="1337" alt="App Image" src="./projectImages/mainPage.png">
@@ -27,14 +19,11 @@ When I was a freshman in college, I learned about real estate rental properties 
 # Why is this Important
 This project can be of great use for anyone because everyone is looking for a place to rent/buy or they are looking for a place to invest in. Sometimes making a decision to buy/rent a place can be really hard as there can be many options out there and there can be many factors to keep track of like the number of rooms, the price, the amenities, whether the house is near a grocery store. In other words there's just so many things to keep track of for such a big decision to be made. But this app makes that process easier. 
 
-# Original Wireframes 
-<<<<<<< HEAD
-<img width="493" alt="Screenshot 2023-03-16 at 8 33 57 PM" src="./images/wireframe1.png">
-<img width="492" alt="Screenshot 2023-03-16 at 8 33 44 PM" src="./images/wireframe2.png">
-=======
-<img width="493" alt="Screenshot 2023-03-16 at 8 33 57 PM" src="https://user-images.githubusercontent.com/118234157/226057740-aa53830a-0c7b-49f1-ad5c-f8ac3f270d18.png">
-<img width="492" alt="Screenshot 2023-03-16 at 8 33 44 PM" src="https://user-images.githubusercontent.com/118234157/226057743-be66bf2a-50d5-4180-8cfe-3e230f2d7fbd.png">
->>>>>>> f815d1f7c408cf624e91395ba7402044f17fe22e
+# Original Wireframes
+<img width="493" alt="Wireframe1" src="./images/wireframe1.png">
+<img width="492" alt="Wireframe2" src="./images/wireframe2.png">
+
+
 
 
 
@@ -47,7 +36,6 @@ As a home buyer, I want to be able to edit information in case houses that I am 
 
 
 
-
 # How I would Improve this Project
 1) I could not get the checkboxes to render in the edit page when a user submitted a new change to the house, so that is something I would like to go back to and fix. For now I just removed that feature from the edit page in order to make MVP by the project deadline
 2) I like the OpenLayers Map API feature a lot, but in my code I want to improve this feature by being able to show an exact marker of the location of the house. 
@@ -56,9 +44,3 @@ As a home buyer, I want to be able to edit information in case houses that I am 
   
  # Citations of Resources and Documentation used for the Project
  [Project 2 Citations.docx](https://github.com/Jonathan2025/RealEstateApp/files/11006665/Project.2.Citations.docx)
-
-<<<<<<< HEAD
-=======
-
-
->>>>>>> f815d1f7c408cf624e91395ba7402044f17fe22e
