@@ -10,8 +10,9 @@ const methodOverride = require('method-override')
 // import the houses controller, now we also need to where they will route to for houses
 const housesController = require('./controllers/houses.js')
 
-// import the users controller 
-const userController = require('./controllers/users.js')
+// commenting out the users controller for now, will come back to in the future
+// import the users controller
+// const userController = require('./controllers/users.js')
 
 // import express sessions
 const session = require('express-session')
@@ -50,24 +51,6 @@ app.use(session({
 }))
 
 
-
-
-
-
-// Establish a Connection to MongoDB
-// mongoose.connect(process.env.DATABASE_URL, {
-//     // remove the depracation warnings
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-
-// })
-
-
-
-
-
-
-
 // Mongo error/success
 const db = mongoose.connection
 db.on('error', (err)=> console.log(`${err.message} MongoDB NOT Running!`))
@@ -91,7 +74,8 @@ app.use(express.static('public'))
 // INDUCES - Routes (will eventually go to the controllers)
 app.use('/houses', housesController)
 
-app.use('/users', userController)
+// commenting out the users controller for now, will come back to in the future
+// app.use('/users', userController)
 
 
 // Port Listener
