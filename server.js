@@ -1,4 +1,5 @@
 // Express Dependencies 
+require('dotenv').config();
 const express = require('express');
 const app = express();
 
@@ -20,7 +21,7 @@ const session = require('express-session')
 // Require mongoose
 const mongoose = require('mongoose')
 const Houses = require('./models/houses.js')
-require('dotenv').config();
+
 
 
 // DATABASE CONNECTION to MongoDB when we deploy to heroku
@@ -79,7 +80,7 @@ app.use('/houses', housesController)
 
 
 // Port Listener
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, ()=>{
     console.log(`server is listening on port ${PORT}`);
 });
